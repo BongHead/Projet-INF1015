@@ -10,6 +10,9 @@ class GameWindow : public QMainWindow
 public:
     GameWindow(QWidget* parent = nullptr);
     ~GameWindow();
+public slots:
+
+    
 
 private:
     Ui::GameWindowClass ui;

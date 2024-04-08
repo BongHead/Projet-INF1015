@@ -94,11 +94,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Piece.h" />
     <QtRcc Include="GameWindow.qrc" />
-    <QtUic Include="GameWindow.ui" />
     <QtMoc Include="GameWindow.h" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\cppitertools\WORKSPACE" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="GameWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tour.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="GameWindow">
-    </qresource>
+  <qresource prefix="GameWindow">
+    <file>images/Board.png</file>
+  </qresource>
 </RCC>
