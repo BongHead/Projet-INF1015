@@ -1,10 +1,10 @@
 #include "Pion.hpp"
 
 
-Pion::Pion(int x, int y, Couleur couleur) : Piece(x, y, couleur) {
+Pion::Pion(pair<int, int> pos, Couleur couleur) : Piece(pos, couleur) {
 
 }
 
 bool Pion::estDepart() {
-	return (couleur == Couleur::noir && posY == 6) || (couleur == Couleur::blanc && posY == 1);
+	return (couleur == Couleur::noir && pos.second == 7) || (couleur == Couleur::blanc && pos.second == 2);
 }

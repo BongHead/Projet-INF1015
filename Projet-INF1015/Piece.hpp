@@ -1,25 +1,34 @@
 #pragma once
 #include <utility>
+#include <vector>
+
+using namespace std;
+
 enum class Couleur {
 	vide,
 	blanc,
 	noir
 };
+
 // classe abstraite
 class Piece {
 public:
 	Piece() = default; //pour pouvoir initialiser le plateau
-	Piece(int x, int y, Couleur couleur); //constructeur peut etre virtual
-	//bool operator==(const Piece& autre);
-	//bool estoccupee();
-	//virtual void AbstractFunction() = 0; //exemple de methode abstraite
-	//bool estCaseValide();
+	Piece(pair<int, int> pos, Couleur couleur); //constructeur peut etre virtual
+
+	Couleur donnerCouleur();
+
+	void mettrePosition(pair<int, int> newPos);
+
+	pair<int, int> donnerPosition();
+
+	vector<pair<int, int>> donnerMouvementsPossibles() { return mouvementsPossible; };
+
+	Piece(const Piece& piece);
+	~Piece() {};
 
 protected:
-	int posX = 8;
-	int posY = 8;
+	pair<int, int> pos;
 	Couleur couleur = Couleur::vide;
-private:
-	 // pour eviter les warnings
-	bool estMort = false; // probablement enlever apres
+	vector<pair<int, int>> mouvementsPossible;
 };

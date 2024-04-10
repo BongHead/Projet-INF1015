@@ -11,21 +11,21 @@ Plateau::Plateau() : plateauJeu(8, vector<shared_ptr<Piece>>(8)) {
 
 }
 
-bool Plateau::caseOccupee(int posX, int posY) {
+bool Plateau::caseOccupee(pair<int, int> pos) {
 	return true;
 }
-void Plateau::bougerPiece(int posX, int posY) {
+void Plateau::bougerPiece(pair<int, int> pos) {
 
 }
 
-void Plateau::ajouterPiece(TypePiece typePiece, int posX, int posY, Couleur couleur) {
-	if (caseOccupee(posX, posY)) {
+void Plateau::ajouterPiece(TypePiece typePiece, pair<int, int> pos, Couleur couleur) {
+	if (caseOccupee(pos)) {
 		// ne pas permettre l'ajout
 		return;
 	}
 	switch (typePiece) {
 		case TypePiece::Pion:
-			plateauJeu.at(posX).at(posY) = make_shared<Pion>(posX, posY, couleur);
+			//plateauJeu.at(pos) = make_shared<Pion>(pos, couleur);
 			break;
 		case TypePiece::Tour:
 			break;

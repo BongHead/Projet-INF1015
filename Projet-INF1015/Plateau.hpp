@@ -19,9 +19,9 @@ class Plateau {
 public:
 	Plateau();
 	vector<vector<shared_ptr<Piece>>> plateauJeu; //preferablement mettre des unique_ptr ou shared_ptr
-	void ajouterPiece(TypePiece typePiece, int posX, int posY, Couleur couleur);
-	bool caseOccupee(int posX, int posY); //possiblement private
-	void bougerPiece(int posX, int posY);
+	void ajouterPiece(TypePiece typePiece, pair<int, int> pos, Couleur couleur);
+	bool caseOccupee(pair<int, int> pos); //possiblement private
+	void bougerPiece(pair<int, int> pos);
 protected:
 
 private:
