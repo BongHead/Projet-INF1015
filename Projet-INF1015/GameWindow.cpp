@@ -8,7 +8,7 @@ GameWindow::GameWindow(QWidget *parent)
     QPixmap pix(":/GameWindow/images/Board.png");
     int x = ui.BoardImg->width();
     int y = ui.BoardImg->height();
-    ui.BoardImg->setPixmap(pix.scaled(100,100,Qt::KeepAspectRatio));
+    ui.BoardImg->setPixmap(pix.scaled(x,y,Qt::KeepAspectRatio));
 }
 
 GameWindow::~GameWindow()

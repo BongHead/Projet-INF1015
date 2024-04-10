@@ -3,7 +3,7 @@
 enum class Couleur {
 	vide,
 	blanc,
-	noir
+	noir,
 };
 // classe abstraite
 class Piece {
