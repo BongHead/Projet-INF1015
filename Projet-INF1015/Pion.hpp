@@ -5,9 +5,10 @@
 
 class Pion : public Piece {
 public:
-	Pion(int x, int y, bool couleur);
+	Pion(int x, int y, Couleur couleur);
+	bool estDepart();
+	
 protected:
 
 private:
-
 };

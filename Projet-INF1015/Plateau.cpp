@@ -7,21 +7,19 @@
 #include "Roi.hpp"
 
 
-int Plateau::nRois = 0;
-
 Plateau::Plateau() : plateauJeu(8, vector<shared_ptr<Piece>>(8)) {
 
 }
 
 bool Plateau::caseOccupee(int posX, int posY) {
-
+	return true;
 }
 void Plateau::bougerPiece(int posX, int posY) {
 
 }
 
-void Plateau::ajouterPiece(TypePiece typePiece, int posX, int posY, bool couleur) {
-	if (caseOccupee) {
+void Plateau::ajouterPiece(TypePiece typePiece, int posX, int posY, Couleur couleur) {
+	if (caseOccupee(posX, posY)) {
 		// ne pas permettre l'ajout
 		return;
 	}
@@ -39,9 +37,7 @@ void Plateau::ajouterPiece(TypePiece typePiece, int posX, int posY, bool couleur
 			break;
 		case TypePiece::Roi:
 			// ne pas oublier de checker le nombre de rois
-			if (++nRois > 2) {
-				//erreur !!!
-			}
+			
 			break;
 		default:
 			break; //lancer une erreur de quelque sorte

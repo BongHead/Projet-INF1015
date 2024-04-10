@@ -1,5 +1,8 @@
 #include "Roi.hpp"
 
-Roi::Roi() {
+int Roi::nRois = 0;
 
+Roi::Roi() {
+	nRois++;
+	
 }

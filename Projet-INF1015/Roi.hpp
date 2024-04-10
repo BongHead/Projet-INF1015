@@ -9,5 +9,5 @@ public:
 protected:
 
 private:
-
+	static int nRois;
 };
