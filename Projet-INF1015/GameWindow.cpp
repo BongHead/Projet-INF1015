@@ -24,5 +24,5 @@ void GameWindow::commencerButton() {
 void GameWindow::quitterButton() {
     auto reply = QMessageBox::question(this, "Quitter?", "\"Chess is... no different from Tic-Tac-Toe.\" - 1/2 Kohaku", QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes)
-        close();z
+        close();
 }
