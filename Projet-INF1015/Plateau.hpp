@@ -21,7 +21,7 @@ public:
 	Plateau();
 	void initPlateau();
 
-	void ajouterPiece(const shared_ptr<Piece>& piece, const pair<int, int>& position);
+	void ajouterPiece(const shared_ptr<Piece>& piece);
 	bool estcaseOccupee(const pair<int, int>& position) const; //possiblement private
 
 	void bougerPiece(const pair<int, int>& from, const pair<int, int>& to); // aucune verification, doit etre fait au prealable

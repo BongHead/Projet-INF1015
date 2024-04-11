@@ -26,3 +26,25 @@ vector<pair<int, int>> Pion::donnerMouvementsPossibles() const {
 
     return mouvements;
 }
+
+bool Pion::validationMouvement(const pair<int, int>& destination, const Plateau& plateau) {
+    int direction = (couleur == Couleur::blanc) ? 1 : -1; 
+    int rangeeDepart = (couleur == Couleur::blanc) ? 1 : 6;
+
+    if (destination.second == pos.second) {
+        if ((destination.first - pos.first) == direction) { 
+            return !plateau.estcaseOccupee(destination);
+        }
+        if ((pos.first == rangeeDepart) && ((destination.first - pos.first) == 2 * direction)) {
+            
+            return !plateau.estcaseOccupee(destination) && !plateau.estcaseOccupee({pos.first + direction, pos.second});
+        }
+    }
+
+    //capture
+    if (abs(destination.second - pos.second) == 1 && (destination.first - pos.first) == direction) {
+        return plateau.estcaseOccupee(destination);
+    }
+
+    return false;
+}
