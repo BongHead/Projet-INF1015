@@ -1,9 +1,9 @@
 #include "Pion.hpp"
-
+#include "Plateau.hpp"
 
 Pion::Pion(pair<int, int> pos, Couleur couleur) : Piece(pos, couleur) {}
 
-vector<pair<int, int>> Pion::donnerMouvementsPossibles() const {
+vector<pair<int, int>> Pion::donnerMouvementsPossibles(const Plateau& plateau) const {
 
     vector<pair<int, int>> mouvements;
     int debutblanc = 1;

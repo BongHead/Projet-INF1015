@@ -22,7 +22,7 @@ public:
 
 	pair<int, int> donnerPosition() const;
 
-	virtual vector<pair<int, int>> donnerMouvementsPossibles() const;
+	virtual vector<pair<int, int>> donnerMouvementsPossibles(const Plateau& plateau) const;
 
 	Piece(const Piece& piece);
 	virtual ~Piece() {};

@@ -4,7 +4,7 @@
 #include "ui_GameWindow.h"
 #include <QPixmap>
 #include <QMessageBox>
-
+#include "Plateau.hpp"
 class GameWindow : public QMainWindow
 {
     Q_OBJECT
@@ -12,7 +12,7 @@ class GameWindow : public QMainWindow
 public:
     GameWindow(QWidget *parent = nullptr);
     ~GameWindow();
-
+    Plateau plateau;
 signals:
 
 public slots:
@@ -20,4 +20,5 @@ public slots:
     void quitterButton();
 private:
     Ui::GameWindowClass ui;
+    
 };

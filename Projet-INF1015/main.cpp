@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     GameWindow w;
+    w.plateau.bougerPiece(make_pair<int, int>(1,1), make_pair(2,1));
     w.show();
     return a.exec();
 }
