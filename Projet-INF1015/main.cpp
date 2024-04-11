@@ -43,9 +43,10 @@ int main(int argc, char *argv[])
 
     w.plateau.ajouterPiece(make_shared<Pion>(pion));
 
-    cout << pion.validationMouvement({ 3,0 }, w.plateau);
-    cout << pion.validationMouvement({ 4,0 }, w.plateau);
-    cout << pion.validationMouvement({ 2,0 }, w.plateau);
+    cout << "pion (1,0) -> (3.0)" << ": " << pion.validationMouvement({ 3,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (4.0)" << ": " << pion.validationMouvement({ 4,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (2.0)" << ": " << pion.validationMouvement({ 2,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (1.0)" << ": " << pion.validationMouvement({ 1,0 }, w.plateau) << endl;
 
     return a.exec();
 }
