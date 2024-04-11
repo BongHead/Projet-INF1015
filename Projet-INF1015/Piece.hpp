@@ -16,16 +16,16 @@ public:
 	Piece() = default; //pour pouvoir initialiser le plateau
 	Piece(pair<int, int> pos, Couleur couleur); //constructeur peut etre virtual
 
-	Couleur donnerCouleur();
+	Couleur donnerCouleur() const;
 
 	void mettrePosition(pair<int, int> newPos);
 
-	pair<int, int> donnerPosition();
+	pair<int, int> donnerPosition() const;
 
-	vector<pair<int, int>> donnerMouvementsPossibles() { return mouvementsPossible; };
+	virtual vector<pair<int, int>> donnerMouvementsPossibles() const;
 
 	Piece(const Piece& piece);
-	~Piece() {};
+	virtual ~Piece() {};
 
 protected:
 	pair<int, int> pos;

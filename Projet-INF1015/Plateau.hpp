@@ -17,15 +17,17 @@ enum class TypePiece {
 
 class Plateau {
 public:
+	static const int DIM = 8; // dimensions
 	Plateau();
-	vector<vector<shared_ptr<Piece>>> plateauJeu; //preferablement mettre des unique_ptr ou shared_ptr
-	void ajouterPiece(TypePiece typePiece, pair<int, int> pos, Couleur couleur);
-	bool caseOccupee(pair<int, int> pos); //possiblement private
-	void bougerPiece(pair<int, int> pos);
+	void initPlateau();
+
+	void ajouterPiece(const shared_ptr<Piece>& piece, const pair<int, int>& position);
+	bool estcaseOccupee(const pair<int, int>& position) const; //possiblement private
+
+	void bougerPiece(const pair<int, int>& from, const pair<int, int>& to); // aucune verification, doit etre fait au prealable
+
 protected:
 
 private:
-	
-	//static int nRois; //initialiser au constructeur
-	bool tour = false; //blanc = false
+	shared_ptr<Piece> casePiece[DIM][DIM];
 };
