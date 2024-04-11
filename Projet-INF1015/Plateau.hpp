@@ -27,5 +27,5 @@ protected:
 private:
 	
 	//static int nRois; //initialiser au constructeur
-	bool tour = false; //blanc
+	bool tour = false; //blanc = false
 };

@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_GameWindow.h"
 #include <QPixmap>
+#include <QMessageBox>
 
 class GameWindow : public QMainWindow
 {
@@ -15,7 +16,8 @@ public:
 signals:
 
 public slots:
-
+    void commencerButton();
+    void quitterButton();
 private:
     Ui::GameWindowClass ui;
 };

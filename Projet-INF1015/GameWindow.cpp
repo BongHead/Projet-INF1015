@@ -14,4 +14,15 @@ GameWindow::GameWindow(QWidget *parent)
 GameWindow::~GameWindow()
 {}
 
+void GameWindow::commencerButton() {
+    ui.GameTitle->setVisible(false);
+    ui.gameHider->setVisible(false);
+    ui.CommencerButton->setVisible(false);
+    ui.QuitterButton->setVisible(false);
+}
 
+void GameWindow::quitterButton() {
+    auto reply = QMessageBox::question(this, "Quitter?", "\"Chess is... no different from Tic-Tac-Toe.\" - 1/2 Kohaku", QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
+        close();z
+}
