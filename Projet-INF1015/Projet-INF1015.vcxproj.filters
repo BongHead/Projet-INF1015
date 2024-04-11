@@ -64,6 +64,15 @@
     <ClCompile Include="Roi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bibliotheque_cours\verification_allocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="googletest\src\gtest-all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Piece.hpp">
@@ -88,6 +97,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cavalier.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Case.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
