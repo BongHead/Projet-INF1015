@@ -9,19 +9,18 @@
 
 
 Plateau::Plateau(){
-	initPlateau();
-}
-
-void Plateau::initPlateau() {
 	for (int i = 0; i < DIM; ++i) {
 		for (int j = 0; j < DIM; ++j) {
 			casePiece[i][j] = nullptr;
 		}
 	}
+}
+
+void Plateau::initPlateau() {
 
 	for (int i = 0; i < DIM; ++i) {
-		ajouterPiece(make_shared<Pion>(make_pair(1, i), Couleur::blanc), make_pair(1, i));
-		ajouterPiece(make_shared<Pion>(make_pair(6, i), Couleur::noir), make_pair(6, i));
+		ajouterPiece(make_shared<Pion>(make_pair(1, i), Couleur::blanc));
+		ajouterPiece(make_shared<Pion>(make_pair(6, i), Couleur::noir));
 	}
 }
 
@@ -37,7 +36,8 @@ void Plateau::bougerPiece(const pair<int, int>& depart, const pair<int, int>& de
 	//casePiece[depart.first][depart.second] = nullptr;
 }
 
-void Plateau::ajouterPiece(const shared_ptr<Piece>& piece, const pair<int, int>& position) {
+void Plateau::ajouterPiece(const shared_ptr<Piece>& piece) {
+	auto position = piece->donnerPosition();
 	if (!estcaseOccupee(position)) {
 		casePiece[position.first][position.second] = piece;
 	}

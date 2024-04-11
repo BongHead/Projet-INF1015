@@ -1,6 +1,8 @@
 ﻿#include "GameWindow.h"
 #include <QtWidgets/QApplication>
 #include <iostream>
+#include "Plateau.hpp"
+#include "Pion.hpp"
 
 #if __has_include("bibliotheque_cours.hpp")
 #include "bibliotheque_cours.hpp"
@@ -36,5 +38,14 @@ int main(int argc, char *argv[])
     GameWindow w;
     w.plateau.bougerPiece(make_pair<int, int>(1,1), make_pair(2,1));
     w.show();
+    
+    Pion pion(make_pair(1, 0), Couleur::blanc);
+
+    w.plateau.ajouterPiece(make_shared<Pion>(pion));
+
+    cout << pion.validationMouvement({ 3,0 }, w.plateau);
+    cout << pion.validationMouvement({ 4,0 }, w.plateau);
+    cout << pion.validationMouvement({ 2,0 }, w.plateau);
+
     return a.exec();
 }
