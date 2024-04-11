@@ -97,7 +97,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp" />
+    <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
     <ClCompile Include="Cavalier.cpp" />
+    <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Pion.cpp" />
     <ClCompile Include="Plateau.cpp" />
