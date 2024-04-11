@@ -1,6 +1,5 @@
 #include "Pion.hpp"
 
-
 Pion::Pion(pair<int, int> pos, Couleur couleur) : Piece(pos, couleur) {}
 
 vector<pair<int, int>> Pion::donnerMouvementsPossibles() const {

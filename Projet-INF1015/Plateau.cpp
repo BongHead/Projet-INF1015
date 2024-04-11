@@ -32,14 +32,14 @@ bool Plateau::estcaseOccupee(const pair<int, int>& position) const{
 }
 
 void Plateau::bougerPiece(const pair<int, int>& depart, const pair<int, int>& destination) {
-	casePiece[depart.first][depart.second] = move(casePiece[destination.first][destination.second]);
+	casePiece[destination.first][destination.second] = move(casePiece[depart.first][depart.second]); //inverser destinations-departs
+	//casePiece[depart.first][depart.second] = nullptr;
 }
 
 void Plateau::ajouterPiece(const shared_ptr<Piece>& piece) {
 	auto position = piece->donnerPosition();
 	if (!estcaseOccupee(position)) {
 		casePiece[position.first][position.second] = piece;
-		return;
 	}
-	return; //case est occupe
+	//case est occupe
 }

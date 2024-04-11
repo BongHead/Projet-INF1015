@@ -1,7 +1,6 @@
 #pragma once
 #include <utility>
 #include <vector>
-
 using namespace std;
 
 enum class Couleur {

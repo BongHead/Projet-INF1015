@@ -1,7 +1,7 @@
 #include "GameWindow.h"
 
 GameWindow::GameWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), plateau()
 {
     ui.setupUi(this);
 
