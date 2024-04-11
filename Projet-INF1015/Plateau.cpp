@@ -5,41 +5,41 @@
 #include "Fou.hpp"
 #include "Reine.hpp"
 #include "Roi.hpp"
+#include "stdexcept"
 
 
-Plateau::Plateau() : plateauJeu(8, vector<shared_ptr<Piece>>(8)) {
-
+Plateau::Plateau(){
+	initPlateau();
 }
 
-bool Plateau::caseOccupee(pair<int, int> pos) {
-	return true;
-}
-void Plateau::bougerPiece(pair<int, int> pos) {
+void Plateau::initPlateau() {
+	for (int i = 0; i < DIM; ++i) {
+		for (int j = 0; j < DIM; ++j) {
+			casePiece[i][j] = nullptr;
+		}
+	}
 
+	for (int i = 0; i < DIM; ++i) {
+		ajouterPiece(make_shared<Pion>(make_pair(1, i), Couleur::blanc), make_pair(1, i));
+		ajouterPiece(make_shared<Pion>(make_pair(6, i), Couleur::noir), make_pair(6, i));
+	}
 }
 
-void Plateau::ajouterPiece(TypePiece typePiece, pair<int, int> pos, Couleur couleur) {
-	if (caseOccupee(pos)) {
-		// ne pas permettre l'ajout
+bool Plateau::estcaseOccupee(const pair<int, int>& position) const{
+	if (position.first < 0 || position.first >= DIM || position.second < 0 || position.second >= DIM) {
+		throw out_of_range("Hors plateau");
+	}
+	return casePiece[position.first][position.second] != nullptr;
+}
+
+void Plateau::bougerPiece(const pair<int, int>& depart, const pair<int, int>& destination) {
+	casePiece[depart.first][depart.second] = move(casePiece[destination.first][destination.second]);
+}
+
+void Plateau::ajouterPiece(const shared_ptr<Piece>& piece, const pair<int, int>& position) {
+	if (!estcaseOccupee(position)) {
+		casePiece[position.first][position.second] = piece;
 		return;
 	}
-	switch (typePiece) {
-		case TypePiece::Pion:
-			//plateauJeu.at(pos) = make_shared<Pion>(pos, couleur);
-			break;
-		case TypePiece::Tour:
-			break;
-		case TypePiece::Cavalier:
-			break;
-		case TypePiece::Fou:
-			break;
-		case TypePiece::Reine:
-			break;
-		case TypePiece::Roi:
-			// ne pas oublier de checker le nombre de rois
-			
-			break;
-		default:
-			break; //lancer une erreur de quelque sorte
-	}
+	return; //case est occupe
 }
