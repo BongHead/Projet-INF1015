@@ -39,14 +39,17 @@ int main(int argc, char *argv[])
     w.plateau.bougerPiece(make_pair<int, int>(1,1), make_pair(2,1));
     w.show();
     
-    Pion pion(make_pair(1, 0), Couleur::blanc);
+    Pion pion10(make_pair(1, 0), Couleur::blanc);
+    Pion pion20(make_pair(2, 1), Couleur::noir);
+    w.plateau.ajouterPiece(make_shared<Pion>(pion10));
+    w.plateau.ajouterPiece(make_shared<Pion>(pion20));
 
-    w.plateau.ajouterPiece(make_shared<Pion>(pion));
 
-    cout << "pion (1,0) -> (3.0)" << ": " << pion.validationMouvement({ 3,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (4.0)" << ": " << pion.validationMouvement({ 4,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (2.0)" << ": " << pion.validationMouvement({ 2,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (1.0)" << ": " << pion.validationMouvement({ 1,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (3,0)" << ": " << pion10.validationMouvement({ 3,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (4,0)" << ": " << pion10.validationMouvement({ 4,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (2,0)" << ": " << pion10.validationMouvement({ 2,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (1,0)" << ": " << pion10.validationMouvement({ 1,0 }, w.plateau) << endl;
+    cout << "pion (1,0) -> (2,1)" << ": " << pion10.validationMouvement({ 2,1 }, w.plateau) << endl;
 
     return a.exec();
 }
