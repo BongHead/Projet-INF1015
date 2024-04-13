@@ -49,7 +49,7 @@ bool Pion::validationMouvement(const pair<int, int>& destination, const Plateau&
             return false; 
         }
 
-        Piece* pieceCaseDestination = plateau.trouverPiece(destination);
+        Piece* pieceCaseDestination = plateau.trouverPiece(destination);    // trouve la couleur de la piece en diagonal
         if (pieceCaseDestination->donnerCouleur() != this->couleur) {
             return true;
         }
