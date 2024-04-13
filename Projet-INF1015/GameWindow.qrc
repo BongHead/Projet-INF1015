@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="GameWindow">
+    <file>images/TourNoir.png</file>
     <file>images/Board.png</file>
   </qresource>
 </RCC>
