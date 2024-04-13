@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
     vector<pair<int, int>> mouvementsValides = pion10.donnerMouvementsValides(w.plateau);
     for (const auto& move : mouvementsValides) {
-        std::cout << "(" << move.first << ", " << move.second << ")" << std::endl;
+        cout << "(" << move.first << ", " << move.second << ")" << endl;
     }
 
     return a.exec();

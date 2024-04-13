@@ -45,7 +45,14 @@ bool Pion::validationMouvement(const pair<int, int>& destination, const Plateau&
 
     //capture
     if (abs(destination.second - pos.second) == 1 && (destination.first - pos.first) == direction) {
-        return plateau.estcaseOccupee(destination);
+        if (!plateau.estcaseOccupee(destination)) {
+            return false; 
+        }
+
+        Piece* pieceCaseDestination = plateau.trouverPiece(destination);
+        if (pieceCaseDestination->donnerCouleur() != this->couleur) {
+            return true;
+        }
     }
 
     return false;

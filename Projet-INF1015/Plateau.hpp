@@ -25,7 +25,8 @@ public:
 	bool estcaseOccupee(const pair<int, int>& position) const; //possiblement private
 
 	void bougerPiece(const pair<int, int>& from, const pair<int, int>& to); // aucune verification, doit etre fait au prealable
-
+	
+	Piece* trouverPiece(const pair<int, int>& position) const;
 	
 protected:
 
