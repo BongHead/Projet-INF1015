@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 
 #include <QtWidgets/QMainWindow>
 #include "ui_GameWindow.h"
@@ -20,6 +22,7 @@ signals:
 public slots:
     void commencerButton();
     void quitterButton();
+    void testBouton();
 private:
     Ui::GameWindowClass ui;
     
