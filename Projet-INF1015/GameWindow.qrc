@@ -1,6 +1,17 @@
 <RCC>
-  <qresource prefix="GameWindow">
-    <file>images/TourNoir.png</file>
-    <file>images/Board.png</file>
-  </qresource>
+    <qresource prefix="/GameWindow">
+        <file>images/PionBlanc.png</file>
+        <file>images/TourNoir.png</file>
+        <file>images/Board.png</file>
+        <file>images/CavalierBlanc.png</file>
+        <file>images/CavalierNoir.png</file>
+        <file>images/FouBlanc.png</file>
+        <file>images/FouNoir.png</file>
+        <file>images/PionNoir.png</file>
+        <file>images/ReineBlanc.png</file>
+        <file>images/ReineNoir.png</file>
+        <file>images/RoiBlanc.png</file>
+        <file>images/RoiNoir.png</file>
+        <file>images/TourBlanc.png</file>
+    </qresource>
 </RCC>

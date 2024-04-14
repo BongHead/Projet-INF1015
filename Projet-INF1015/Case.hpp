@@ -1,10 +1,11 @@
 #pragma once
+#include <QPushButton>
 #include "Piece.hpp"
 #include <memory>
-#include <QPushButton>
+
 
 class Case : public QPushButton{
-	Q_OBJECT
+	
 public:
 	enum EtatCase {
 		pionBlanc,
@@ -26,7 +27,7 @@ public:
 	shared_ptr<Piece> piece;
 
 	void changerEtat(EtatCase nouvelEtat);
-	
+	void setXY(int x, int y);
 protected:
 
 private:

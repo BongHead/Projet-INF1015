@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>881</width>
+    <width>1106</width>
     <height>879</height>
    </rect>
   </property>
@@ -143,7 +143,7 @@ font: 75px courier new;
       <number>0</number>
      </property>
      <item row="8" column="3">
-      <widget class="QPushButton" name="d1">
+      <widget class="Case" name="d1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -165,7 +165,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="4">
-      <widget class="QPushButton" name="e2">
+      <widget class="Case" name="e2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -187,7 +187,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="4">
-      <widget class="QPushButton" name="e4">
+      <widget class="Case" name="e4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -209,7 +209,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="a7">
+      <widget class="Case" name="a7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -231,7 +231,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QPushButton" name="b4">
+      <widget class="Case" name="b4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -253,7 +253,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="3">
-      <widget class="QPushButton" name="d3">
+      <widget class="Case" name="d3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -275,7 +275,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QPushButton" name="b2">
+      <widget class="Case" name="b2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -297,7 +297,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="8">
-      <widget class="QPushButton" name="h2">
+      <widget class="Case" name="h2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -319,7 +319,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QPushButton" name="c6">
+      <widget class="Case" name="c6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -341,7 +341,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="3">
-      <widget class="QPushButton" name="d5">
+      <widget class="Case" name="d5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -363,7 +363,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="b7">
+      <widget class="Case" name="b7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -385,7 +385,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="8">
-      <widget class="QPushButton" name="h5">
+      <widget class="Case" name="h5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -407,7 +407,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QPushButton" name="c4">
+      <widget class="Case" name="c4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -429,7 +429,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="5">
-      <widget class="QPushButton" name="f3">
+      <widget class="Case" name="f3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -451,7 +451,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="4">
-      <widget class="QPushButton" name="e8">
+      <widget class="Case" name="e8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -473,7 +473,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="8">
-      <widget class="QPushButton" name="h6">
+      <widget class="Case" name="h6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -495,7 +495,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="4">
-      <widget class="QPushButton" name="e3">
+      <widget class="Case" name="e3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -517,7 +517,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="6">
-      <widget class="QPushButton" name="g6">
+      <widget class="Case" name="g6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -539,7 +539,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="2">
-      <widget class="QPushButton" name="c1">
+      <widget class="Case" name="c1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -561,7 +561,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="5">
-      <widget class="QPushButton" name="f8">
+      <widget class="Case" name="f8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -583,7 +583,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="3">
-      <widget class="QPushButton" name="d4">
+      <widget class="Case" name="d4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -605,7 +605,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="8">
-      <widget class="QPushButton" name="h1">
+      <widget class="Case" name="h1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -627,7 +627,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="8">
-      <widget class="QPushButton" name="h4">
+      <widget class="Case" name="h4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -649,7 +649,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QPushButton" name="d8">
+      <widget class="Case" name="d8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -671,7 +671,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QPushButton" name="c2">
+      <widget class="Case" name="c2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -693,7 +693,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="8">
-      <widget class="QPushButton" name="h8">
+      <widget class="Case" name="h8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -715,7 +715,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="3">
-      <widget class="QPushButton" name="d7">
+      <widget class="Case" name="d7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -737,7 +737,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QPushButton" name="c5">
+      <widget class="Case" name="c5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -759,7 +759,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="5">
-      <widget class="QPushButton" name="f4">
+      <widget class="Case" name="f4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -781,7 +781,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="4">
-      <widget class="QPushButton" name="e6">
+      <widget class="Case" name="e6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -803,7 +803,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="b8">
+      <widget class="Case" name="b8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -825,7 +825,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QPushButton" name="b5">
+      <widget class="Case" name="b5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -847,7 +847,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="4">
-      <widget class="QPushButton" name="e5">
+      <widget class="Case" name="e5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -869,7 +869,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="4">
-      <widget class="QPushButton" name="e7">
+      <widget class="Case" name="e7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -891,7 +891,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="2">
-      <widget class="QPushButton" name="c3">
+      <widget class="Case" name="c3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -913,7 +913,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="4">
-      <widget class="QPushButton" name="e1">
+      <widget class="Case" name="e1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -935,7 +935,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="b6">
+      <widget class="Case" name="b6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -957,7 +957,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="6">
-      <widget class="QPushButton" name="g3">
+      <widget class="Case" name="g3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -979,7 +979,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="6">
-      <widget class="QPushButton" name="g4">
+      <widget class="Case" name="g4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1001,7 +1001,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="5">
-      <widget class="QPushButton" name="f5">
+      <widget class="Case" name="f5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1023,7 +1023,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="0">
-      <widget class="QPushButton" name="a3">
+      <widget class="Case" name="a3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1070,7 +1070,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="5">
-      <widget class="QPushButton" name="f6">
+      <widget class="Case" name="f6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1092,7 +1092,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="5">
-      <widget class="QPushButton" name="f1">
+      <widget class="Case" name="f1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1114,7 +1114,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="0">
-      <widget class="QPushButton" name="a2">
+      <widget class="Case" name="a2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1136,7 +1136,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="8">
-      <widget class="QPushButton" name="h7">
+      <widget class="Case" name="h7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1158,7 +1158,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="6">
-      <widget class="QPushButton" name="g5">
+      <widget class="Case" name="g5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1180,7 +1180,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QPushButton" name="b3">
+      <widget class="Case" name="b3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1202,7 +1202,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="0">
-      <widget class="QPushButton" name="a1">
+      <widget class="Case" name="a1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1224,7 +1224,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QPushButton" name="c7">
+      <widget class="Case" name="c7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1246,7 +1246,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="a5">
+      <widget class="Case" name="a5">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1268,7 +1268,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QPushButton" name="c8">
+      <widget class="Case" name="c8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1290,7 +1290,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="3">
-      <widget class="QPushButton" name="d2">
+      <widget class="Case" name="d2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1312,7 +1312,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QPushButton" name="a6">
+      <widget class="Case" name="a6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1334,7 +1334,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="5">
-      <widget class="QPushButton" name="f2">
+      <widget class="Case" name="f2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1356,7 +1356,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="5" column="0">
-      <widget class="QPushButton" name="a4">
+      <widget class="Case" name="a4">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1378,7 +1378,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="5">
-      <widget class="QPushButton" name="f7">
+      <widget class="Case" name="f7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1400,7 +1400,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="1" column="6">
-      <widget class="QPushButton" name="g7">
+      <widget class="Case" name="g7">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1422,7 +1422,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="6">
-      <widget class="QPushButton" name="g1">
+      <widget class="Case" name="g1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1444,7 +1444,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="6" column="8">
-      <widget class="QPushButton" name="h3">
+      <widget class="Case" name="h3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1466,7 +1466,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="7" column="6">
-      <widget class="QPushButton" name="g2">
+      <widget class="Case" name="g2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1488,7 +1488,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="8" column="1">
-      <widget class="QPushButton" name="b1">
+      <widget class="Case" name="b1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1510,7 +1510,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="2" column="3">
-      <widget class="QPushButton" name="d6">
+      <widget class="Case" name="d6">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1532,7 +1532,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="6">
-      <widget class="QPushButton" name="g8">
+      <widget class="Case" name="g8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1558,8 +1558,8 @@ font: 75px courier new;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>330</y>
+      <x>880</x>
+      <y>60</y>
       <width>111</width>
       <height>61</height>
      </rect>
@@ -1568,13 +1568,26 @@ font: 75px courier new;
      <string>Blanc à jouer</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="PartieNormaleButton">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>160</y>
+      <width>171</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Partie Normale</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>881</width>
+     <width>1106</width>
      <height>22</height>
     </rect>
    </property>
@@ -1612,8 +1625,8 @@ font: 75px courier new;
      <y>487</y>
     </hint>
     <hint type="destinationlabel">
-     <x>926</x>
-     <y>525</y>
+     <x>641</x>
+     <y>782</y>
     </hint>
    </hints>
   </connection>
@@ -1628,24 +1641,24 @@ font: 75px courier new;
      <y>537</y>
     </hint>
     <hint type="destinationlabel">
-     <x>920</x>
-     <y>567</y>
+     <x>646</x>
+     <y>806</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>a8</sender>
+   <sender>PartieNormaleButton</sender>
    <signal>clicked()</signal>
    <receiver>GameWindowClass</receiver>
-   <slot>testBouton()</slot>
+   <slot>partieNormaleInit()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>100</y>
+     <x>1005</x>
+     <y>222</y>
     </hint>
     <hint type="destinationlabel">
-     <x>55</x>
-     <y>94</y>
+     <x>1050</x>
+     <y>198</y>
     </hint>
    </hints>
   </connection>
@@ -1654,5 +1667,6 @@ font: 75px courier new;
   <slot>commencerButton()</slot>
   <slot>quitterButton()</slot>
   <slot>testBouton()</slot>
+  <slot>partieNormaleInit()</slot>
  </slots>
 </ui>

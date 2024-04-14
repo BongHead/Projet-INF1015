@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include "Plateau.hpp"
+
 namespace echecs{
     class GameWindow : public QMainWindow
     {
@@ -22,8 +23,10 @@ namespace echecs{
     public slots:
         void commencerButton();
         void quitterButton();
-        void testBouton();
+        //void testBouton();
+        void partieNormaleInit();
     private:
+        void assignerPos();
         Ui::GameWindowClass ui;
     
 };

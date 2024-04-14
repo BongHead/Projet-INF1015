@@ -30,4 +30,5 @@ protected:
 	pair<int, int> pos;
 	Couleur couleur = Couleur::vide;
 	vector<pair<int, int>> mouvementsPossible;
+
 };

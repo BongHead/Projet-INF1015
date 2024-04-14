@@ -6,44 +6,48 @@ void Case::changerEtat(EtatCase nouvelEtat) {
 		syncBitmap();
 	}
 }
+void Case::setXY(int x, int y) {
+	posX = x;
+	posY = y;
+}
 
 void Case::syncBitmap() {
 	switch (etat) {
 	case pionBlanc:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/PionBlanc.png"));
 		break;
 	case tourBlanc:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/TourBlanc.png"));
 		break;
 	case cavalierBlanc:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/CavalierBlanc.png"));
 		break;
 	case fouBlanc:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/FouBlanc.png"));
 		break;
 	case reineBlanc:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/ReineBlanc.png"));
 		break;
 	case roiBlanc:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/RoiBlanc.png"));
 		break;
 	case pionNoir:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/PionNoir.png"));
 		break;
 	case tourNoir:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/TourNoir.png"));
 		break;
 	case cavalierNoir:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/CavalierNoir.png"));
 		break;
 	case fouNoir:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/FouNoir.png"));
 		break;
 	case reineNoir:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/ReineNoir.png"));
 		break;
 	case roiNoir:
-		setIcon(QIcon());
+		setIcon(QIcon(":/GameWindow/images/RoiNoir.png"));
 		break;
 	case vide:
 		setIcon(QIcon());
