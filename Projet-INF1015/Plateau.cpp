@@ -36,6 +36,13 @@ void Plateau::bougerPiece(const pair<int, int>& depart, const pair<int, int>& de
 	//casePiece[depart.first][depart.second] = nullptr;
 }
 
+Piece* Plateau::trouverPiece(const pair<int, int>& position) const {
+	if (position.first >= 0 && position.first < 8 && position.second >= 0 && position.second < 8) {
+		return casePiece[position.first][position.second].get();
+	}
+	return nullptr;
+}
+
 void Plateau::ajouterPiece(const shared_ptr<Piece>& piece) {
 	auto position = piece->donnerPosition();
 	if (!estcaseOccupee(position)) {

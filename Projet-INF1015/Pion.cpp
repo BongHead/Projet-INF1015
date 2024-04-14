@@ -11,7 +11,8 @@ vector<pair<int, int>> Pion::donnerMouvementsPossibles() const {
     int direction = (couleur == Couleur::blanc) ? 1 : -1;
 
     pair<int, int> avancerPion(pos.first + direction, pos.second);
-    mouvements.push_back(avancerPion);
+    if (avancerPion.first >= 0 && avancerPion.first < 8)
+        mouvements.push_back(avancerPion);
 
     if ((couleur == Couleur::blanc && pos.first == debutblanc) || (couleur == Couleur::noir && pos.first == debutnoir)) {
         pair<int, int> avancerDepart(pos.first + 2 * direction, pos.second);
@@ -20,13 +21,15 @@ vector<pair<int, int>> Pion::donnerMouvementsPossibles() const {
 
     pair<int, int> captureGauche(pos.first + direction, pos.second - 1);
     pair<int, int> captureDroite(pos.first + direction, pos.second + 1);
-    mouvements.push_back(captureGauche);
-    mouvements.push_back(captureDroite);
+    if (captureGauche.first >= 0 && captureGauche.second < 8 && captureGauche.second > 0)
+        mouvements.push_back(captureGauche);
+    if (captureDroite.first >= 0 && captureDroite.second < 8 && captureDroite.second > 0)
+        mouvements.push_back(captureDroite);
 
     return mouvements;
 }
 
-bool Pion::validationMouvement(const pair<int, int>& destination, const Plateau& plateau) {
+bool Pion::validationMouvement(const pair<int, int>& destination, const Plateau& plateau) const{
     int direction = (couleur == Couleur::blanc) ? 1 : -1; 
     int rangeeDepart = (couleur == Couleur::blanc) ? 1 : 6;
 
@@ -42,8 +45,28 @@ bool Pion::validationMouvement(const pair<int, int>& destination, const Plateau&
 
     //capture
     if (abs(destination.second - pos.second) == 1 && (destination.first - pos.first) == direction) {
-        return plateau.estcaseOccupee(destination);
+        if (!plateau.estcaseOccupee(destination)) {
+            return false; 
+        }
+
+        Piece* pieceCaseDestination = plateau.trouverPiece(destination);    // trouve la couleur de la piece en diagonal
+        if (pieceCaseDestination->donnerCouleur() != this->couleur) {
+            return true;
+        }
     }
 
     return false;
+}
+
+vector<pair<int, int>> Pion::donnerMouvementsValides(const Plateau& plateau) const{
+    vector<pair<int, int>> mouvements = donnerMouvementsPossibles();
+    vector<pair<int, int>> mouvementsValides;
+
+    for (const auto& move : mouvements) {
+        if (validationMouvement(move, plateau)) {
+            mouvementsValides.push_back(move);
+        }
+    }
+
+    return mouvementsValides;
 }

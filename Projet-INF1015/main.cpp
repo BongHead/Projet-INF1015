@@ -44,12 +44,10 @@ int main(int argc, char *argv[])
     w.plateau.ajouterPiece(make_shared<Pion>(pion10));
     w.plateau.ajouterPiece(make_shared<Pion>(pion20));
 
-
-    cout << "pion (1,0) -> (3,0)" << ": " << pion10.validationMouvement({ 3,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (4,0)" << ": " << pion10.validationMouvement({ 4,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (2,0)" << ": " << pion10.validationMouvement({ 2,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (1,0)" << ": " << pion10.validationMouvement({ 1,0 }, w.plateau) << endl;
-    cout << "pion (1,0) -> (2,1)" << ": " << pion10.validationMouvement({ 2,1 }, w.plateau) << endl;
+    vector<pair<int, int>> mouvementsValides = pion10.donnerMouvementsValides(w.plateau);
+    for (const auto& move : mouvementsValides) {
+        cout << "(" << move.first << ", " << move.second << ")" << endl;
+    }
 
     return a.exec();
 }
