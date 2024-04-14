@@ -73,6 +73,9 @@
     <ClCompile Include="googletest\src\gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Case.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Piece.hpp">
@@ -99,8 +102,10 @@
     <ClInclude Include="Cavalier.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Case.hpp">
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Case.hpp">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
   </ItemGroup>
 </Project>

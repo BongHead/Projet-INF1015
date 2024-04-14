@@ -7,23 +7,24 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include "Plateau.hpp"
+namespace echecs{
+    class GameWindow : public QMainWindow
+    {
+        Q_OBJECT
 
-class GameWindow : public QMainWindow
-{
-    Q_OBJECT
+    public:
+        GameWindow(QWidget *parent = nullptr);
+        ~GameWindow();
 
-public:
-    GameWindow(QWidget *parent = nullptr);
-    ~GameWindow();
+        Plateau plateau;
+    signals:
 
-    Plateau plateau;
-signals:
-
-public slots:
-    void commencerButton();
-    void quitterButton();
-    void testBouton();
-private:
-    Ui::GameWindowClass ui;
+    public slots:
+        void commencerButton();
+        void quitterButton();
+        void testBouton();
+    private:
+        Ui::GameWindowClass ui;
     
 };
+}

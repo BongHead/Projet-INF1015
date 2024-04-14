@@ -35,7 +35,7 @@ void initialiserBibliothequeCours([[maybe_unused]] int argc, [[maybe_unused]] ch
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    GameWindow w;
+    echecs::GameWindow w;
     w.plateau.bougerPiece(make_pair<int, int>(1,1), make_pair(2,1));
     w.show();
     

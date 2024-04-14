@@ -1,6 +1,6 @@
 #include "GameWindow.h"
 
-GameWindow::GameWindow(QWidget *parent)
+echecs::GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent), plateau()
 {
     ui.setupUi(this);
@@ -13,23 +13,23 @@ GameWindow::GameWindow(QWidget *parent)
 
 }
 
-GameWindow::~GameWindow()
+echecs::GameWindow::~GameWindow()
 {}
 
-void GameWindow::commencerButton() {
+void echecs::GameWindow::commencerButton() {
     ui.GameTitle->setVisible(false);
     ui.gameHider->setVisible(false);
     ui.CommencerButton->setVisible(false);
     ui.QuitterButton->setVisible(false);
 }
 
-void GameWindow::quitterButton() {
+void echecs::GameWindow::quitterButton() {
     auto reply = QMessageBox::question(this, "Quitter?", "\"Chess is... no different from Tic-Tac-Toe.\" - 1/2 Kohaku", QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes)
         close();
 }
 
-void GameWindow::testBouton() {
+void echecs::GameWindow::testBouton() {
     ui.a1->setIcon(QIcon(":/GameWindow/images/TourNoir.png"));
     //ui.a1->setIcon(QIcon());
     std::cout << "Bouton clicked;" << endl;

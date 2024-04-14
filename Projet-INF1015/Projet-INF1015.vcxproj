@@ -99,6 +99,7 @@
   <ItemGroup>
     <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp" />
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
+    <ClCompile Include="Case.cpp" />
     <ClCompile Include="Cavalier.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="Piece.cpp" />
@@ -115,7 +116,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Case.hpp" />
+    <QtMoc Include="Case.hpp" />
     <ClInclude Include="Cavalier.hpp" />
     <ClInclude Include="Fou.hpp" />
     <ClInclude Include="Piece.hpp" />

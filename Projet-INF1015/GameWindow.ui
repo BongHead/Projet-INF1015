@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1106</width>
+    <width>881</width>
     <height>879</height>
    </rect>
   </property>
@@ -1045,7 +1045,7 @@ font: 75px courier new;
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QPushButton" name="a8">
+      <widget class="Case" name="a8">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Ignored" vsizetype="MinimumExpanding">
          <horstretch>0</horstretch>
@@ -1574,7 +1574,7 @@ font: 75px courier new;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1106</width>
+     <width>881</width>
      <height>22</height>
     </rect>
    </property>
@@ -1590,6 +1590,13 @@ font: 75px courier new;
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Case</class>
+   <extends>QPushButton</extends>
+   <header>Case.hpp</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="GameWindow.qrc"/>
  </resources>
