@@ -102,8 +102,10 @@
     <ClInclude Include="Cavalier.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Case.hpp">
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Case.hpp">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
   </ItemGroup>
 </Project>

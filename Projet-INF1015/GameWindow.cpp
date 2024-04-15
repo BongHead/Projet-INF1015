@@ -11,9 +11,12 @@ echecs::GameWindow::GameWindow(QWidget *parent)
     ui.QuitterButton->setVisible(false);
     ui.GameTitle->setVisible(false);
     //==============================
-
+    
     assignerPos();
-
+    /*auto reine1 = make_shared<Reine>();
+    shared_ptr<Piece> a[8][8];
+    a[2][4] = reine1;
+    syncPlateau(a);*/
 
     QPixmap pix(":/GameWindow/images/Board.png");
     int x = ui.BoardImg->width();
@@ -156,4 +159,30 @@ void echecs::GameWindow::partieNormaleInit() {
     ui.g7->changerEtat(Case::pionNoir);
     ui.h7->changerEtat(Case::pionNoir);
 
+}
+
+void echecs::GameWindow::jouer(int x, int y) {
+    auto item = ui.plateauLayout->itemAtPosition(7-x, y);
+    if (!item || !item->widget())
+        return;
+    Case* plateauCase = qobject_cast<Case*>(item->widget());
+    if (plateauCase) {
+        plateauCase->changerEtat(Case::cavalierBlanc);
+    }
+
+}
+
+
+void echecs::GameWindow::syncPlateau(shared_ptr<Piece> plateau[8][8]) {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            auto piece = plateau[i][j];
+            switch (piece->getType()) {
+            case Piece::Pion:
+                //ui.plateauLayout->itemAtPosition(7-i, j)->widget()->
+                break;
+            }
+            
+        }
+    }
 }

@@ -12,9 +12,17 @@ enum class Couleur {
 // classe abstraite
 class Piece {
 public:
+	enum Type {
+		Pion,
+		Tour,
+		Cavalier,
+		Fou,
+		Reine,
+		Roi,
+	};
 	Piece() = default; //pour pouvoir initialiser le plateau
 	Piece(pair<int, int> pos, Couleur couleur); //constructeur peut etre virtual
-
+	Type getType() { return type; }
 	Couleur donnerCouleur() const;
 
 	void mettrePosition(pair<int, int> newPos);
@@ -29,6 +37,8 @@ public:
 protected:
 	pair<int, int> pos;
 	Couleur couleur = Couleur::vide;
+	
 	vector<pair<int, int>> mouvementsPossible;
+	Type type;
 
 };

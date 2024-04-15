@@ -5,7 +5,7 @@
 
 
 class Case : public QPushButton{
-	
+	Q_OBJECT
 public:
 	enum EtatCase {
 		pionBlanc,

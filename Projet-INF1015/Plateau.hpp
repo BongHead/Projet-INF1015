@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include "Piece.hpp"
+
 #include <string>
 using namespace std;
 
@@ -27,6 +28,8 @@ public:
 	void bougerPiece(const pair<int, int>& from, const pair<int, int>& to); // aucune verification, doit etre fait au prealable
 
 	Piece* trouverPiece(const pair<int, int>& position) const; //get la piece a position
+
+	
 	
 protected:
 

@@ -50,3 +50,4 @@ void Plateau::ajouterPiece(const shared_ptr<Piece>& piece) {
 	}
 	//case est occupe
 }
+

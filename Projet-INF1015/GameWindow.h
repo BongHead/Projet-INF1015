@@ -16,7 +16,6 @@ namespace echecs{
     public:
         GameWindow(QWidget *parent = nullptr);
         ~GameWindow();
-
         Plateau plateau;
     signals:
 
@@ -25,8 +24,11 @@ namespace echecs{
         void quitterButton();
         //void testBouton();
         void partieNormaleInit();
+        void jouer(int x, int y);
+        void syncPlateau(shared_ptr<Piece> plateau[8][8]);
     private:
         void assignerPos();
+        
         Ui::GameWindowClass ui;
     
 };

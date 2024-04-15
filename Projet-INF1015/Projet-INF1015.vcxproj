@@ -116,7 +116,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Case.hpp" />
+    <QtMoc Include="Case.hpp" />
     <ClInclude Include="Cavalier.hpp" />
     <ClInclude Include="Fou.hpp" />
     <ClInclude Include="Piece.hpp" />
