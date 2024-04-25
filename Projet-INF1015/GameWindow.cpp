@@ -60,7 +60,7 @@ void front_end::GameWindow::buttonPressed() {
 
 void front_end::GameWindow::bougerPiece(int x1, int y1, int x2, int y2) {
     plateau->casePiece[x2][y2] = std::move(plateau->casePiece[x1][y1]);
-    plateau->casePiece[x1][y1] = nullptr;
+    //plateau->casePiece[x1][y1] = nullptr;
     syncPlateau();
 }
 void front_end::GameWindow::jouerTour(string pos1, string pos2) {
