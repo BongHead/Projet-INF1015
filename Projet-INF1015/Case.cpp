@@ -6,11 +6,11 @@ void Case::changerEtat(EtatCase nouvelEtat) {
 		syncBitmap();
 	}
 }
-void Case::setXY(int x, int y) {
-	posX = x;
-	posY = y;
-}
-
+//void Case::setXY(int x, int y) {
+//	posX = x;
+//	posY = y;
+//}
+//
 void Case::syncBitmap() {
 	switch (etat) {
 	case pionBlanc:

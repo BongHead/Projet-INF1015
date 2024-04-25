@@ -3,7 +3,7 @@
 
 
 
-class Fou : virtual public Piece {
+class Fou : public Piece {
 public:
 	Fou();
 protected:

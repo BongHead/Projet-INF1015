@@ -1,9 +1,8 @@
 #pragma once
-#include "Tour.hpp"
-#include "Fou.hpp"
+#include "Piece.hpp"
 
 
-class Reine : public Tour, public Fou {
+class Reine : public Piece {
 public:
 	Reine();
 protected:

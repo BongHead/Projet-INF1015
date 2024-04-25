@@ -3,7 +3,7 @@
 
 class Cavalier : public Piece {
 public:
-	Cavalier();
+	Cavalier(int x, int y, Couleur couleur);
 protected:
 
 private:

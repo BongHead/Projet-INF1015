@@ -2,7 +2,7 @@
 #include <QtWidgets/QApplication>
 #include <iostream>
 #include "Plateau.hpp"
-#include "Pion.hpp"
+#include "Roi.hpp"
 
 #if __has_include("bibliotheque_cours.hpp")
 #include "bibliotheque_cours.hpp"
@@ -32,22 +32,16 @@ void initialiserBibliothequeCours([[maybe_unused]] int argc, [[maybe_unused]] ch
 
 
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
-    echecs::GameWindow w;
-    w.plateau.bougerPiece(make_pair<int, int>(1,1), make_pair(2,1));
+    front_end::GameWindow w;
     w.show();
-    
-    Pion pion10(make_pair(1, 0), Couleur::blanc);
-    Pion pion20(make_pair(2, 1), Couleur::noir);
-    w.plateau.ajouterPiece(make_shared<Pion>(pion10));
-    w.plateau.ajouterPiece(make_shared<Pion>(pion20));
 
-    vector<pair<int, int>> mouvementsValides = pion10.donnerMouvementsValides(w.plateau);
-    for (const auto& move : mouvementsValides) {
-        cout << "(" << move.first << ", " << move.second << ")" << endl;
-    }
+	/*w.partieNormaleInit();
+	w.jouerTour("a8", "b8");
+	cout << "";*/
 
+	
     return a.exec();
 }

@@ -1,6 +1,6 @@
 #include "Tour.hpp"
 
 
-Tour::Tour() {
+Tour::Tour(int x, int y, Couleur couleur) : Piece(x,y,couleur, Piece::Tour) {
 
 }

@@ -3,9 +3,9 @@
 
 
 
-class Tour : virtual public Piece {
+class Tour : public Piece {
 public:
-	Tour();
+	Tour(int x, int y, Couleur couleur);
 protected:
 
 private:

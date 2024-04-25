@@ -24,10 +24,8 @@ public:
 	};
 	Case(QWidget* parent = nullptr) : QPushButton(parent) {}
 
-	shared_ptr<Piece> piece;
-
 	void changerEtat(EtatCase nouvelEtat);
-	void setXY(int x, int y);
+	//void setXY(int x, int y);
 protected:
 
 private:

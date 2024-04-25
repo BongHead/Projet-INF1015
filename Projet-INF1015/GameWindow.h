@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include "Plateau.hpp"
 
-namespace echecs{
+namespace front_end {
     class GameWindow : public QMainWindow
     {
         Q_OBJECT
@@ -16,7 +16,7 @@ namespace echecs{
     public:
         GameWindow(QWidget *parent = nullptr);
         ~GameWindow();
-        Plateau plateau;
+        back_end::Plateau* plateau;
     signals:
 
     public slots:
@@ -24,12 +24,18 @@ namespace echecs{
         void quitterButton();
         //void testBouton();
         void partieNormaleInit();
-        void jouer(int x, int y);
-        void syncPlateau(shared_ptr<Piece> plateau[8][8]);
+        //void jouer(int x, int y);
+        void syncPlateau();
+        static string posToObjName(int x, int y);
+        void buttonPressed();
+        void bougerPiece(int x1, int y1, int x2, int y2);
+        void jouerTour(string pos1, string pos2);
     private:
-        void assignerPos();
-        
+        //void assignerPos();
+        string case1= "";
+        string case2 = "";
+        bool turn = false; // blanc
         Ui::GameWindowClass ui;
     
-};
+    };
 }

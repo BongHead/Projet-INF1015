@@ -3,12 +3,6 @@
 #include <vector>
 using namespace std;
 
-enum class Couleur {
-	vide,
-	blanc,
-	noir,
-};
-
 // classe abstraite
 class Piece {
 public:
@@ -20,9 +14,22 @@ public:
 		Reine,
 		Roi,
 	};
-	Piece() = default; //pour pouvoir initialiser le plateau
-	Piece(pair<int, int> pos, Couleur couleur); //constructeur peut etre virtual
-	Type getType() { return type; }
+	enum Couleur {
+		blanc,
+		noir,
+	};
+	Piece() = default;
+	Piece(int x, int y, Couleur couleur, Type type);
+
+	Type getType() {
+		return type_;
+	}
+	Couleur getCouleur() {
+		return couleur_;
+	}
+
+	//Piece(pair<int, int> pos, Couleur couleur, Type type); //constructeur peut etre virtual
+	/*Type getType() { return type; }
 	Couleur donnerCouleur() const;
 
 	void mettrePosition(pair<int, int> newPos);
@@ -32,13 +39,14 @@ public:
 	virtual vector<pair<int, int>> donnerMouvementsPossibles() const;
 
 	Piece(const Piece& piece);
-	virtual ~Piece() {};
+	virtual ~Piece() {};*/
 
 protected:
-	pair<int, int> pos;
-	Couleur couleur = Couleur::vide;
-	
-	vector<pair<int, int>> mouvementsPossible;
-	Type type;
+	pair<int, int> pos_;
+	Couleur couleur_;
+	//vector<pair<int, int>> mouvementsPossible;
+	Type type_;
+
+private:
 
 };
