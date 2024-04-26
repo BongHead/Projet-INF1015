@@ -45,3 +45,10 @@ int main(int argc, char* argv[])
 	
     return a.exec();
 }
+
+
+// -fix array orientation logic
+// -check for valid moves (if valid move then consume turn and sync ui else restart turn and dont move anything)
+// -check for illegal moves (especially king related)
+// -check for check
+// -end game if either king dies (I'll take care of the end screen)

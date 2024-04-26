@@ -210,7 +210,7 @@ void front_end::GameWindow::syncPlateau() {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             auto piece = plateau->casePiece[i][j];
-            string position = posToObjName(j, i);
+            string position = posToObjName(j, i); ///===========3
             auto caseButton = findChild<Case*>(position);
             
             if (piece == nullptr) {
