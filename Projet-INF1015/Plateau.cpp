@@ -5,26 +5,26 @@
 back_end::Plateau::Plateau(back_end::Plateau::TypeJeu typeJeu) {
 	switch (typeJeu) {
 	case back_end::Plateau::normal:
-		casePiece[0][0] = make_shared<Tour>(0, 0, Piece::blanc);
-		casePiece[0][7] = make_shared<Tour>(0, 7, Piece::blanc);
-		casePiece[0][1] = make_shared<Cavalier>(0, 1, Piece::blanc);
-		casePiece[0][6] = make_shared<Cavalier>(0, 6, Piece::blanc);
+		casePiece[7][0] = make_shared<Tour>(7, 0, Piece::blanc);
+		casePiece[7][7] = make_shared<Tour>(7, 7, Piece::blanc);
+		casePiece[7][1] = make_shared<Cavalier>(7, 1, Piece::blanc);
+		casePiece[7][6] = make_shared<Cavalier>(7, 6, Piece::blanc);
 		try {
-			casePiece[0][4] = make_shared<Roi>(0, 4, Piece::blanc);
+			casePiece[0][4] = make_shared<Roi>(0, 4, Piece::noir);
 		}
-		catch (ExceptionTropDeRois exception) {
+		catch (ExceptionTropDeRois &exception) {
 			cout << exception.what() << endl;
 			casePiece[7][4] = nullptr;
 		}
 
-		casePiece[7][0] = make_shared<Tour>(7, 0, Piece::noir);
-		casePiece[7][7] = make_shared<Tour>(7, 7, Piece::noir);
-		casePiece[7][1] = make_shared<Cavalier>(7, 1, Piece::noir);
-		casePiece[7][6] = make_shared<Cavalier>(7, 6, Piece::noir);
+		casePiece[0][0] = make_shared<Tour>(0, 0, Piece::noir);
+		casePiece[0][7] = make_shared<Tour>(0, 7, Piece::noir);
+		casePiece[0][1] = make_shared<Cavalier>(0, 1, Piece::noir);
+		casePiece[0][6] = make_shared<Cavalier>(0, 6, Piece::noir);
 		try {
-			casePiece[7][4] = make_shared<Roi>(7, 4, Piece::noir);
+			casePiece[7][4] = make_shared<Roi>(7, 4, Piece::blanc);
 		}
-		catch (ExceptionTropDeRois exception) {
+		catch (ExceptionTropDeRois &exception) {
 			cout << exception.what() << endl;
 			casePiece[7][4] = nullptr;
 		}

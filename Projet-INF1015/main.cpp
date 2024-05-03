@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 }
 
 
-// -fix array orientation logic
+// -fix array orientation logic done
 // -check for valid moves (if valid move then consume turn and sync ui else restart turn and dont move anything)
 // -check for illegal moves (especially king related)
 // -check for check
