@@ -1,3 +1,11 @@
+﻿/**
+* Classe représentant une case dans un plateau de jeu.
+* \file   Case.hpp
+* \author Song Ning Lan et Sheng He Ge
+* \date   3 mai 2024
+* Créé le 19 avril 2024
+*/
+
 #pragma once
 #include <QPushButton>
 #include "Piece.hpp"
@@ -23,16 +31,11 @@ public:
 		vide,
 	};
 	Case(QWidget* parent = nullptr) : QPushButton(parent) {}
-
 	void changerEtat(EtatCase nouvelEtat);
-	//void setXY(int x, int y);
 protected:
 
 private:
 	void syncBitmap();
-
-
-	int posX=0; int posY=0;
 	EtatCase etat = vide;
 };
 

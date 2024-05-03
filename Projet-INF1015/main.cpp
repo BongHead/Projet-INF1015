@@ -1,4 +1,14 @@
-﻿#include "GameWindow.h"
+﻿/**
+* Programme qui implémente (partiellement) un jeu d'échecs.
+* Le menu permet de commencer une partie et les boutons permettent
+* de choisir le type de jeu. Les pièces sont implémentés avec vérification d'échec.
+* 
+* \file   main.cpp
+* \author Song Ning Lan et Sheng He Ge
+* \date   3 mai 2024
+* Créé le 19 avril 2024
+*/
+#include "GameWindow.h"
 #include <QtWidgets/QApplication>
 #include <iostream>
 #include "Plateau.hpp"

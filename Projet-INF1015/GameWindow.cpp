@@ -1,25 +1,22 @@
+﻿/**
+* Implémentation de la classe GameWindow.
+* \file   GameWindow.cpp
+* \author Song Ning Lan et Sheng He Ge
+* \date   3 mai 2024
+* Créé le 19 avril 2024
+*/
+
 #include "GameWindow.h"
-#include<string>
+
 
 front_end::GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent), plateau(new back_end::Plateau)
 {
     ui.setupUi(this);
-
-
-    //==============================
-    ui.CommencerButton->setVisible(false);
-    ui.QuitterButton->setVisible(false);
-    ui.GameTitle->setVisible(false);
-    //==============================
-    
-
     QPixmap pix(":/GameWindow/images/Board.png");
     int x = ui.BoardImg->width();
     int y = ui.BoardImg->height();
     ui.BoardImg->setPixmap(pix.scaled(x,y,Qt::KeepAspectRatio));
-    
-
 }
 
 front_end::GameWindow::~GameWindow()
@@ -45,10 +42,33 @@ void front_end::GameWindow::partieNormaleInit() {
     plateau = new back_end::Plateau(back_end::Plateau::normal);
     syncPlateau();
     ui.PartieNormaleButton->setVisible(false);
+    ui.posRandomButton->setVisible(false);
+    ui.posRandomButton2->setVisible(false);
+    turn_ = false;
 }
 
-bool front_end::GameWindow::dansListe(pair<int, int> move,const vector<pair<int, int>>& mouvementsValides) {
-    int size = mouvementsValides.size();
+void front_end::GameWindow::partieRandom1Init() {
+    delete plateau;
+    plateau = new back_end::Plateau(back_end::Plateau::random1);
+    syncPlateau();
+    ui.PartieNormaleButton->setVisible(false);
+    ui.posRandomButton->setVisible(false);
+    ui.posRandomButton2->setVisible(false);
+    turn_ = false;
+}
+
+void front_end::GameWindow::partieRandom2Init() {
+    delete plateau;
+    plateau = new back_end::Plateau(back_end::Plateau::random2);
+    syncPlateau();
+    ui.PartieNormaleButton->setVisible(false);
+    ui.posRandomButton->setVisible(false);
+    ui.posRandomButton2->setVisible(false);
+    turn_ = false;
+}
+
+bool front_end::GameWindow::estDansListe(pair<int, int> move,const vector<pair<int, int>>& mouvementsValides) {
+    size_t size = mouvementsValides.size();
     for (int i = 0; i < size; i++) {
         //cout << "compare " << move.first << ',' << move.second << " " << mouvementsValides[i].first << ',' << mouvementsValides[i].second << endl;
         if (move == mouvementsValides[i]) {
@@ -70,7 +90,7 @@ pair<int, int> front_end::GameWindow::trouverRoi(Piece::Couleur couleur) {
     return make_pair(69, 69);
 }
 
-vector<pair<int, int>> front_end::GameWindow::valideSoi(Piece::Couleur couleur) {
+vector<pair<int, int>> front_end::GameWindow::validerSoi(Piece::Couleur couleur) {
     vector<pair<int, int>> soi;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
@@ -94,7 +114,7 @@ vector<pair<int, int>> front_end::GameWindow::valideSoi(Piece::Couleur couleur) 
     return soi;
 }
 
-vector<pair<int, int>> front_end::GameWindow::valideAdverse(Piece::Couleur couleur) {
+vector<pair<int, int>> front_end::GameWindow::validerAdverse(Piece::Couleur couleur) {
     vector<pair<int, int>> adversaire;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
@@ -194,37 +214,37 @@ vector<pair<int, int>> front_end::GameWindow::getMouvementsValides(shared_ptr<Pi
         }
         break;
     case Piece::Roi:
-        vector<pair<int, int>> mouvementIllegaux = valideAdverse(piece->getCouleur());
+        vector<pair<int, int>> mouvementIllegaux = validerAdverse(piece->getCouleur());
         if ((x + 1 <= 7 && y + 1 <= 7) && ((plateau->casePiece[x + 1][y + 1] == nullptr || plateau->casePiece[x + 1][y + 1]->getCouleur() != piece->getCouleur()) 
-            && !dansListe(make_pair(x + 1, y + 1), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x + 1, y + 1), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x + 1, y + 1));
         }
         if ((x + 1 <= 7 && y - 1 >= 0) && ((plateau->casePiece[x + 1][y - 1] == nullptr || plateau->casePiece[x + 1][y - 1]->getCouleur() != piece->getCouleur()) 
-            && !dansListe(make_pair(x + 1, y - 1), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x + 1, y - 1), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x + 1, y - 1));
         }
         if ((x - 1 >= 0 && y + 1 <= 7) && ((plateau->casePiece[x - 1][y + 1] == nullptr || plateau->casePiece[x - 1][y + 1]->getCouleur() != piece->getCouleur()) 
-            && !dansListe(make_pair(x - 1, y + 1), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x - 1, y + 1), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x - 1, y + 1));
         }
         if ((x - 1 >= 0 && y - 1 >= 0) && ((plateau->casePiece[x - 1][y - 1] == nullptr || plateau->casePiece[x - 1][y - 1]->getCouleur() != piece->getCouleur()) 
-            && !dansListe(make_pair(x - 1, y - 1), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x - 1, y - 1), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x - 1, y - 1));
         }
         if ((x + 1 <= 7) && ((plateau->casePiece[x + 1][y] == nullptr || plateau->casePiece[x + 1][y]->getCouleur() != piece->getCouleur())
-            && !dansListe(make_pair(x + 1, y), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x + 1, y), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x + 1, y));
         }
         if ((x - 1 >= 0) && ((plateau->casePiece[x - 1][y] == nullptr || plateau->casePiece[x - 1][y]->getCouleur() != piece->getCouleur())
-            && !dansListe(make_pair(x - 1, y), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x - 1, y), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x - 1, y));
         }
         if ((y + 1 <= 7) && ((plateau->casePiece[x][y + 1] == nullptr || plateau->casePiece[x][y + 1]->getCouleur() != piece->getCouleur())
-            && !dansListe(make_pair(x, y + 1), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x, y + 1), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x, y + 1));
         }
         if ((y - 1 >= 0) && ((plateau->casePiece[x][y - 1] == nullptr || plateau->casePiece[x][y - 1]->getCouleur() != piece->getCouleur())
-            && !dansListe(make_pair(x, y - 1), mouvementIllegaux))) {
+            && !estDansListe(make_pair(x, y - 1), mouvementIllegaux))) {
             getMouvements.push_back(make_pair(x, y - 1));
         }
         break;
@@ -237,82 +257,90 @@ void front_end::GameWindow::buttonPressed() {
     string objectName = senderButton->objectName().toStdString();
     int x, y, x2, y2;
     nomObjAPos(objectName, x, y);
-    if (plateau->casePiece[x][y] == nullptr && case1 == "") {
-        cout << "Case vide" << endl;
+    if (plateau->casePiece[x][y] == nullptr && case1_ == "") {
+        ui.StatusLabel->setText("Case vide");
+        //cout << "Case vide" << endl;
         return;
     }
-    if (((!turn) && (case1 == "") && (plateau->casePiece[x][y]->getCouleur() == Piece::noir)) 
-        or ((turn) && (case1 == "") && (plateau->casePiece[x][y]->getCouleur() == Piece::blanc))) {
-        cout << "Attend ton tour mon enfant" << endl;
+    if (((!turn_) && (case1_ == "") && (plateau->casePiece[x][y]->getCouleur() == Piece::noir)) 
+        or ((turn_) && (case1_ == "") && (plateau->casePiece[x][y]->getCouleur() == Piece::blanc))) {
+        ui.StatusLabel->setText("Attend ton tour mon enfant.");
+        //cout << "Attend ton tour mon enfant" << endl;
         return;
     }
 
-    if (case1 == "") {
-        mouvementsValides = getMouvementsValides(plateau->casePiece[x][y], x, y);
-        for (int i = 0; i < mouvementsValides.size(); i++) {
-            cout << mouvementsValides[i].first << ',' << mouvementsValides[i].second << endl;
-        }
-        case1 = objectName;
+    if (case1_ == "") {
+        mouvementsValides_ = getMouvementsValides(plateau->casePiece[x][y], x, y);
+        /*for (int i = 0; i < mouvementsValides_.size(); i++) {
+            cout << mouvementsValides_[i].first << ',' << mouvementsValides_[i].second << endl;
+        }*/
+        case1_ = objectName;
     }
-    else if (case2 == "") {
+    else if (case2_ == "") {
         nomObjAPos(objectName, x2, y2);
-        if (!dansListe(make_pair(x2, y2), mouvementsValides)) {
-            cout << "Invalide" << endl;
+        if (!estDansListe(make_pair(x2, y2), mouvementsValides_)) {
+            ui.StatusLabel->setText("Invalide.");
+            //cout << "Invalide" << endl;
             return;
         }
-        case2 = objectName;
-        jouerTour(case1, case2);
+        case2_ = objectName;
+        jouerTour(case1_, case2_);
     }
-    cout << senderButton->objectName().toStdString() << endl;
+    ui.posLabel->setText(senderButton->objectName().toStdString().c_str());
+    //cout << senderButton->objectName().toStdString() << endl;
 }
 
 void front_end::GameWindow::bougerPiece(int x1, int y1, int x2, int y2) {
     plateau->casePiece[x2][y2] = std::move(plateau->casePiece[x1][y1]);
-    //plateau->casePiece[x1][y1] = nullptr;
     syncPlateau();
 }
+
 void front_end::GameWindow::jouerTour(string pos1, string pos2) {
-    cout << pos1[0];
+    //cout << pos1[0];
     int x1 , x2, y1, y2;
     nomObjAPos(pos1, x1, y1);
     nomObjAPos(pos2, x2, y2);
-    cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << endl;
+    //cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << endl;
     bougerPiece(x1, y1, x2, y2);
-    mouvementsValides.clear();
+    mouvementsValides_.clear();
     Piece::Couleur couleur = plateau->casePiece[x2][y2]->getCouleur();
-    vector<pair<int, int>> soi = valideSoi(couleur);
+    vector<pair<int, int>> soi = validerSoi(couleur);
     pair<int, int> roiAdverse = trouverRoi(couleur);
-    if (roiAdverse == game_over) {
-        cout << "Game Over";
+    if (roiAdverse == game_over_) {
+        ui.StatusLabel->setText("Game over");
+        ui.PartieNormaleButton->setVisible(true);
+        ui.posRandomButton->setVisible(true);
+        ui.posRandomButton2->setVisible(true);
     }
-    if (dansListe(roiAdverse, soi)) {
-        check = true;
-        cout << roiAdverse.first << ',' << roiAdverse.second << " check" << endl;
-        mouvementsValides = getMouvementsValides(plateau->casePiece[roiAdverse.first][roiAdverse.second], roiAdverse.first, roiAdverse.second);
-        if (mouvementsValides.size() == 0) {
-            cout << "Stalemate";
+    if (estDansListe(roiAdverse, soi)) {
+        check_ = true;
+        ui.StatusLabel->setText(format("{},{} check", roiAdverse.first, roiAdverse.second).c_str());
+        //cout << roiAdverse.first << ',' << roiAdverse.second << " check" << endl;
+        mouvementsValides_ = getMouvementsValides(plateau->casePiece[roiAdverse.first][roiAdverse.second], roiAdverse.first, roiAdverse.second);
+        if (mouvementsValides_.size() == 0) {
+            ui.StatusLabel->setText("Stalemate");
+            //cout << "Stalemate";
         }
-        case1 = posANomObj(roiAdverse.first, roiAdverse.second);
+        case1_ = posANomObj(roiAdverse.first, roiAdverse.second);
     }
     else {
-        case1 = "";
+        case1_ = "";
     }
-    case2 = "";
-    turn = !turn;
+    case2_ = "";
+    turn_ = !turn_;
+    if (!turn_)
+        ui.CompteurTour->setText("Blanc à jouer");
+    else
+        ui.CompteurTour->setText("Noir à jouer");
 }
-/*
-void echecs::GameWindow::testBouton() {
-    ui.a1->setIcon(QIcon(":/GameWindow/images/TourNoir.png"));
-    ui.a8->changerEtat(Case::pionBlanc);
-    std::cout << "Bouton clicked;" << endl;
-}*/
 
 
-void front_end::GameWindow::syncPlateau() {
+
+void front_end::GameWindow::syncPlateau() const {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             auto piece = plateau->casePiece[i][j];
-            string position = posANomObj(i, j); ///===========3
+            string position = posANomObj(i, j); 
             auto caseButton = findChild<Case*>(position);
             
             if (piece == nullptr) {

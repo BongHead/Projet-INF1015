@@ -1,3 +1,11 @@
+﻿/**
+* Implémentation de la classe Case
+* \file   Case.cpp
+* \author Song Ning Lan et Sheng He Ge
+* \date   3 mai 2024
+* Créé le 19 avril 2024
+*/
+
 #include "Case.hpp"
 
 void Case::changerEtat(EtatCase nouvelEtat) {
@@ -6,11 +14,7 @@ void Case::changerEtat(EtatCase nouvelEtat) {
 		syncBitmap();
 	}
 }
-//void Case::setXY(int x, int y) {
-//	posX = x;
-//	posY = y;
-//}
-//
+
 void Case::syncBitmap() {
 	switch (etat) {
 	case pionBlanc:

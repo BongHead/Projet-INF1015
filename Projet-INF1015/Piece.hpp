@@ -1,9 +1,15 @@
+﻿/**
+* Classe de base pour tous les types de pièces.
+* \file   Piece.hpp
+* \author Song Ning Lan et Sheng He Ge
+* \date   3 mai 2024
+* Créé le 19 avril 2024
+*/
 #pragma once
 #include <utility>
 #include <vector>
 using namespace std;
 
-// classe abstraite
 class Piece {
 public:
 	enum Type {
@@ -19,7 +25,7 @@ public:
 		noir,
 	};
 	Piece() = default;
-	Piece(int x, int y, Couleur couleur, Type type);
+	Piece(Couleur couleur, Type type);
 
 	Type getType() {
 		return type_;
@@ -27,26 +33,9 @@ public:
 	Couleur getCouleur() {
 		return couleur_;
 	}
-	
-	//Piece(pair<int, int> pos, Couleur couleur, Type type); //constructeur peut etre virtual
-	/*Type getType() { return type; }
-	Couleur donnerCouleur() const;
-
-	void mettrePosition(pair<int, int> newPos);
-
-	pair<int, int> donnerPosition() const;
-
-	virtual vector<pair<int, int>> donnerMouvementsPossibles() const;
-
-	Piece(const Piece& piece);
-	virtual ~Piece() {};*/
 
 protected:
-	pair<int, int> pos_;
 	Couleur couleur_;
-	//vector<pair<int, int>> mouvementsPossible;
 	Type type_;
-
 private:
-
 };

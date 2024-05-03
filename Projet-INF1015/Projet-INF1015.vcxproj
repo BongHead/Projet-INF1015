@@ -37,7 +37,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.7.0</QtInstall>
+    <QtInstall>6.7.0_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -103,29 +103,26 @@
     <ClCompile Include="Cavalier.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="Piece.cpp" />
-    <ClCompile Include="Pion.cpp" />
     <ClCompile Include="Plateau.cpp" />
-    <ClCompile Include="Reine.cpp" />
     <ClCompile Include="Roi.cpp" />
     <ClCompile Include="TestEchecs.cpp" />
     <ClCompile Include="Tour.cpp" />
     <QtRcc Include="GameWindow.qrc" />
     <QtUic Include="GameWindow.ui" />
     <QtMoc Include="GameWindow.h" />
-    <ClCompile Include="Fou.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Case.hpp" />
     <ClInclude Include="Cavalier.hpp" />
-    <ClInclude Include="Fou.hpp" />
     <ClInclude Include="Piece.hpp" />
-    <ClInclude Include="Pion.hpp" />
     <ClInclude Include="Plateau.hpp" />
-    <ClInclude Include="Reine.hpp" />
     <ClInclude Include="Roi.hpp" />
     <ClInclude Include="Tour.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
