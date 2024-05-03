@@ -36,7 +36,7 @@ back_end::Plateau::Plateau(back_end::Plateau::TypeJeu typeJeu) {
 }
 
 back_end::Plateau::~Plateau() {
-	//casePiece[0][0].reset();
+	//casePiece[0][0].reset();*
 }
 //Plateau::Plateau(){
 //	for (int i = 0; i < DIM; ++i) {

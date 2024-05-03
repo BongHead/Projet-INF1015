@@ -23,11 +23,11 @@ public:
 
 	Type getType() {
 		return type_;
-	}
+	} 
 	Couleur getCouleur() {
 		return couleur_;
 	}
-
+	
 	//Piece(pair<int, int> pos, Couleur couleur, Type type); //constructeur peut etre virtual
 	/*Type getType() { return type; }
 	Couleur donnerCouleur() const;

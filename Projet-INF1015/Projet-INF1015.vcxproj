@@ -107,6 +107,7 @@
     <ClCompile Include="Plateau.cpp" />
     <ClCompile Include="Reine.cpp" />
     <ClCompile Include="Roi.cpp" />
+    <ClCompile Include="TestEchecs.cpp" />
     <ClCompile Include="Tour.cpp" />
     <QtRcc Include="GameWindow.qrc" />
     <QtUic Include="GameWindow.ui" />
