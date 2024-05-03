@@ -1,4 +1,5 @@
 #include "GameWindow.h"
+#include<string>
 
 front_end::GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent), plateau(new back_end::Plateau)
@@ -46,13 +47,220 @@ void front_end::GameWindow::partieNormaleInit() {
     ui.PartieNormaleButton->setVisible(false);
 }
 
+bool front_end::GameWindow::dansListe(pair<int, int> move,const vector<pair<int, int>>& mouvementsValides) {
+    int size = mouvementsValides.size();
+    for (int i = 0; i < size; i++) {
+        //cout << "compare " << move.first << ',' << move.second << " " << mouvementsValides[i].first << ',' << mouvementsValides[i].second << endl;
+        if (move == mouvementsValides[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+pair<int, int> front_end::GameWindow::trouverRoi(Piece::Couleur couleur) {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            shared_ptr<Piece> autrePiece = plateau->casePiece[i][j];
+            if ((autrePiece != nullptr) && (autrePiece->getCouleur() != couleur) && (autrePiece->getType() == Piece::Roi)) {
+                return make_pair(i, j);
+            }
+        }
+    }
+    return make_pair(69, 69);
+}
+
+vector<pair<int, int>> front_end::GameWindow::valideSoi(Piece::Couleur couleur) {
+    vector<pair<int, int>> soi;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            shared_ptr<Piece> autrePiece = plateau->casePiece[i][j];
+            if ((autrePiece != nullptr) && (autrePiece->getCouleur() == couleur) && (autrePiece->getType() != Piece::Roi)) {
+                vector<pair<int, int>> otherMoves = getMouvementsValides(autrePiece, i, j);
+                soi.insert(soi.end(), otherMoves.begin(), otherMoves.end());
+            }
+            else if ((autrePiece != nullptr) && (autrePiece->getCouleur() == couleur) && (autrePiece->getType() == Piece::Roi)) {
+                soi.push_back(make_pair(i + 1, j + 1));
+                soi.push_back(make_pair(i + 1, j - 1));
+                soi.push_back(make_pair(i - 1, j + 1));
+                soi.push_back(make_pair(i - 1, j - 1));
+                soi.push_back(make_pair(i + 1, j));
+                soi.push_back(make_pair(i - 1, j));
+                soi.push_back(make_pair(i, j + 1));
+                soi.push_back(make_pair(i, j - 1));
+            }
+        }
+    }
+    return soi;
+}
+
+vector<pair<int, int>> front_end::GameWindow::valideAdverse(Piece::Couleur couleur) {
+    vector<pair<int, int>> adversaire;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            shared_ptr<Piece> autrePiece = plateau->casePiece[i][j];
+            if ((autrePiece != nullptr) && (autrePiece->getCouleur() != couleur) && (autrePiece->getType() != Piece::Roi)) {
+                vector<pair<int, int>> otherMoves = getMouvementsValides(autrePiece, i, j);
+                adversaire.insert(adversaire.end(), otherMoves.begin(), otherMoves.end());
+            }
+            else if ((autrePiece != nullptr) && (autrePiece->getCouleur() != couleur) && (autrePiece->getType() == Piece::Roi)) {
+                adversaire.push_back(make_pair(i + 1, j + 1));
+                adversaire.push_back(make_pair(i + 1, j - 1));
+                adversaire.push_back(make_pair(i - 1, j + 1));
+                adversaire.push_back(make_pair(i - 1, j - 1));
+                adversaire.push_back(make_pair(i + 1, j));
+                adversaire.push_back(make_pair(i - 1, j));
+                adversaire.push_back(make_pair(i, j + 1));
+                adversaire.push_back(make_pair(i, j - 1));
+            }
+        }
+    }
+    return adversaire;
+}
+
+vector<pair<int, int>> front_end::GameWindow::getMouvementsValides(shared_ptr<Piece> piece, int x, int y) {
+    vector<pair<int, int>> getMouvements;
+    switch (piece->getType()) {
+    case Piece::Cavalier:
+        if ((x + 2 <= 7 && y + 1 <= 7) && ((plateau->casePiece[x + 2][y + 1] == nullptr) || (plateau->casePiece[x + 2][y + 1]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x + 2, y + 1));
+        }
+        if ((x + 2 <= 7 && y - 1 >= 0) && ((plateau->casePiece[x + 2][y - 1] == nullptr) || (plateau->casePiece[x + 2][y - 1]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x + 2, y - 1));
+        }
+        if ((x - 2 >= 0 && y + 1 <= 7) && ((plateau->casePiece[x - 2][y + 1] == nullptr) || (plateau->casePiece[x - 2][y + 1]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x - 2, y + 1));
+        }
+        if ((x - 2 >= 0 && y - 1 >= 0) && ((plateau->casePiece[x - 2][y - 1] == nullptr) || (plateau->casePiece[x - 2][y - 1]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x - 2, y - 1));
+        }
+        if ((x + 1 <= 7 && y + 2 <= 7) && ((plateau->casePiece[x + 1][y + 2] == nullptr) || (plateau->casePiece[x + 1][y + 2]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x + 1, y + 2));
+        }
+        if ((x + 1 <= 7 && y - 2 >= 0) && ((plateau->casePiece[x + 1][y - 2] == nullptr) || (plateau->casePiece[x + 1][y - 2]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x + 1, y - 2));
+        }
+        if ((x - 1 >= 0 && y + 2 <= 7) && ((plateau->casePiece[x - 1][y + 2] == nullptr) || (plateau->casePiece[x - 1][y + 2]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x - 1, y + 2));
+        }
+        if ((x - 1 >= 0 && y - 2 >= 0) && ((plateau->casePiece[x - 1][y - 2] == nullptr) || (plateau->casePiece[x - 1][y - 2]->getCouleur() != piece->getCouleur()))) {
+            getMouvements.push_back(make_pair(x - 1, y - 2));
+        }
+        break;
+    case Piece::Tour:
+        for (int i = x + 1; i <= 7; i++) {
+            if (plateau->casePiece[i][y] == nullptr) {
+                getMouvements.push_back(make_pair(i, y));
+            }
+            else if (plateau->casePiece[i][y]->getCouleur() != piece->getCouleur()) {
+                getMouvements.push_back(make_pair(i, y));
+                break;
+            }
+            else if (plateau->casePiece[i][y]->getCouleur() == piece->getCouleur())
+                break;
+        }
+        for (int i = x - 1; i >=0 ; i--) {
+            if (plateau->casePiece[i][y] == nullptr) {
+                getMouvements.push_back(make_pair(i, y));
+            }
+            else if (plateau->casePiece[i][y]->getCouleur() != piece->getCouleur()) {
+                getMouvements.push_back(make_pair(i, y));
+                break;
+            }
+            else if (plateau->casePiece[i][y]->getCouleur() == piece->getCouleur())
+                break;
+        }
+        for (int i = y + 1; i <= 7; i++) {
+            if (plateau->casePiece[x][i] == nullptr) {
+                getMouvements.push_back(make_pair(x, i));
+            }
+            else if (plateau->casePiece[x][i]->getCouleur() != piece->getCouleur()) {
+                getMouvements.push_back(make_pair(x, i));
+                break;
+            }
+            else if (plateau->casePiece[x][i]->getCouleur() == piece->getCouleur())
+                break;
+        }
+        for (int i = y - 1; i >= 0; i--) {
+            if (plateau->casePiece[x][i] == nullptr) {
+                getMouvements.push_back(make_pair(x, i));
+            }
+            else if (plateau->casePiece[x][i]->getCouleur() != piece->getCouleur()) {
+                getMouvements.push_back(make_pair(x, i));
+                break;
+            }
+            else if (plateau->casePiece[x][i]->getCouleur() == piece->getCouleur())
+                break;
+        }
+        break;
+    case Piece::Roi:
+        vector<pair<int, int>> mouvementIllegaux = valideAdverse(piece->getCouleur());
+        if ((x + 1 <= 7 && y + 1 <= 7) && ((plateau->casePiece[x + 1][y + 1] == nullptr || plateau->casePiece[x + 1][y + 1]->getCouleur() != piece->getCouleur()) 
+            && !dansListe(make_pair(x + 1, y + 1), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x + 1, y + 1));
+        }
+        if ((x + 1 <= 7 && y - 1 >= 0) && ((plateau->casePiece[x + 1][y - 1] == nullptr || plateau->casePiece[x + 1][y - 1]->getCouleur() != piece->getCouleur()) 
+            && !dansListe(make_pair(x + 1, y - 1), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x + 1, y - 1));
+        }
+        if ((x - 1 >= 0 && y + 1 <= 7) && ((plateau->casePiece[x - 1][y + 1] == nullptr || plateau->casePiece[x - 1][y + 1]->getCouleur() != piece->getCouleur()) 
+            && !dansListe(make_pair(x - 1, y + 1), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x - 1, y + 1));
+        }
+        if ((x - 1 >= 0 && y - 1 >= 0) && ((plateau->casePiece[x - 1][y - 1] == nullptr || plateau->casePiece[x - 1][y - 1]->getCouleur() != piece->getCouleur()) 
+            && !dansListe(make_pair(x - 1, y - 1), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x - 1, y - 1));
+        }
+        if ((x + 1 <= 7) && ((plateau->casePiece[x + 1][y] == nullptr || plateau->casePiece[x + 1][y]->getCouleur() != piece->getCouleur())
+            && !dansListe(make_pair(x + 1, y), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x + 1, y));
+        }
+        if ((x - 1 >= 0) && ((plateau->casePiece[x - 1][y] == nullptr || plateau->casePiece[x - 1][y]->getCouleur() != piece->getCouleur())
+            && !dansListe(make_pair(x - 1, y), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x - 1, y));
+        }
+        if ((y + 1 <= 7) && ((plateau->casePiece[x][y + 1] == nullptr || plateau->casePiece[x][y + 1]->getCouleur() != piece->getCouleur())
+            && !dansListe(make_pair(x, y + 1), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x, y + 1));
+        }
+        if ((y - 1 >= 0) && ((plateau->casePiece[x][y - 1] == nullptr || plateau->casePiece[x][y - 1]->getCouleur() != piece->getCouleur())
+            && !dansListe(make_pair(x, y - 1), mouvementIllegaux))) {
+            getMouvements.push_back(make_pair(x, y - 1));
+        }
+        break;
+    }
+    return getMouvements;
+}
+
 void front_end::GameWindow::buttonPressed() {
     Case* senderButton = qobject_cast<Case*>(sender());
+    string objectName = senderButton->objectName().toStdString();
+    int x, y, x2, y2;
+    nomObjAPos(objectName, x, y);
+    if (plateau->casePiece[x][y] == nullptr && case1 == "") {
+        cout << "Case vide" << endl;
+        return;
+    }
+    if (((!turn) && (case1 == "") && (plateau->casePiece[x][y]->getCouleur() == Piece::noir)) 
+        or ((turn) && (case1 == "") && (plateau->casePiece[x][y]->getCouleur() == Piece::blanc))) {
+        cout << "Attend ton tour mon enfant" << endl;
+        return;
+    }
+
     if (case1 == "") {
-        case1 = senderButton->objectName().toStdString();
+        mouvementsValides = getMouvementsValides(plateau->casePiece[x][y], x, y);
+        for (int i = 0; i < mouvementsValides.size(); i++) {
+            cout << mouvementsValides[i].first << ',' << mouvementsValides[i].second << endl;
+        }
+        case1 = objectName;
     }
     else if (case2 == "") {
-        case2 = senderButton->objectName().toStdString();
+        nomObjAPos(objectName, x2, y2);
+        if (!dansListe(make_pair(x2, y2), mouvementsValides)) {
+            cout << "Invalide" << endl;
+            return;
+        }
+        case2 = objectName;
         jouerTour(case1, case2);
     }
     cout << senderButton->objectName().toStdString() << endl;
@@ -64,13 +272,31 @@ void front_end::GameWindow::bougerPiece(int x1, int y1, int x2, int y2) {
     syncPlateau();
 }
 void front_end::GameWindow::jouerTour(string pos1, string pos2) {
-    int x1 = pos1.at(0) - 97;
-    int y1 = pos1.at(1) - '0' - 1;
-    int x2 = pos2.at(0) - 97;
-    int y2 = pos2.at(1) - '0' - 1;
+    cout << pos1[0];
+    int x1 , x2, y1, y2;
+    nomObjAPos(pos1, x1, y1);
+    nomObjAPos(pos2, x2, y2);
     cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << endl;
     bougerPiece(x1, y1, x2, y2);
-    case1 = "";
+    mouvementsValides.clear();
+    Piece::Couleur couleur = plateau->casePiece[x2][y2]->getCouleur();
+    vector<pair<int, int>> soi = valideSoi(couleur);
+    pair<int, int> roiAdverse = trouverRoi(couleur);
+    if (roiAdverse == game_over) {
+        cout << "Game Over";
+    }
+    if (dansListe(roiAdverse, soi)) {
+        check = true;
+        cout << roiAdverse.first << ',' << roiAdverse.second << " check" << endl;
+        mouvementsValides = getMouvementsValides(plateau->casePiece[roiAdverse.first][roiAdverse.second], roiAdverse.first, roiAdverse.second);
+        if (mouvementsValides.size() == 0) {
+            cout << "Stalemate";
+        }
+        case1 = posANomObj(roiAdverse.first, roiAdverse.second);
+    }
+    else {
+        case1 = "";
+    }
     case2 = "";
     turn = !turn;
 }
@@ -81,136 +307,12 @@ void echecs::GameWindow::testBouton() {
     std::cout << "Bouton clicked;" << endl;
 }*/
 
-//void echecs::GameWindow::assignerPos() {
-//    ui.a1->setXY(0,0);
-//    ui.b1->setXY(1,0);
-//    ui.c1->setXY(2,0);
-//    ui.d1->setXY(3,0);
-//    ui.e1->setXY(4,0);
-//    ui.f1->setXY(5,0);
-//    ui.g1->setXY(6,0);
-//    ui.h1->setXY(7,0);
-//
-//    ui.a2->setXY(0,1);
-//    ui.b2->setXY(1,1);
-//    ui.c2->setXY(2,1);
-//    ui.d2->setXY(3,1);
-//    ui.e2->setXY(4,1);
-//    ui.f2->setXY(5,1);
-//    ui.g2->setXY(6,1);
-//    ui.h2->setXY(7,1);
-//
-//    ui.a3->setXY(0,2);
-//    ui.b3->setXY(1,2);
-//    ui.c3->setXY(2,2);
-//    ui.d3->setXY(3,2);
-//    ui.e3->setXY(4,2);
-//    ui.f3->setXY(5,2);
-//    ui.g3->setXY(6,2);
-//    ui.h3->setXY(7,2);
-//
-//    ui.a4->setXY(0,3);
-//    ui.b4->setXY(1,3);
-//    ui.c4->setXY(2,3);
-//    ui.d4->setXY(3,3);
-//    ui.e4->setXY(4,3);
-//    ui.f4->setXY(5,3);
-//    ui.g4->setXY(6,3);
-//    ui.h4->setXY(7,3);
-//
-//    ui.a5->setXY(0,4);
-//    ui.b5->setXY(1,4);
-//    ui.c5->setXY(2,4);
-//    ui.d5->setXY(3,4);
-//    ui.e5->setXY(4,4);
-//    ui.f5->setXY(5,4);
-//    ui.g5->setXY(6,4);
-//    ui.h5->setXY(7,4);
-//
-//    ui.a6->setXY(0,7);
-//    ui.b6->setXY(1,7);
-//    ui.c6->setXY(2,7);
-//    ui.d6->setXY(3,7);
-//    ui.e6->setXY(4,7);
-//    ui.f6->setXY(5,7);
-//    ui.g6->setXY(6,7);
-//    ui.h6->setXY(7,7);
-//
-//    ui.a7->setXY(0,6);
-//    ui.b7->setXY(1,6);
-//    ui.c7->setXY(2,6);
-//    ui.d7->setXY(3,6);
-//    ui.e7->setXY(4,6);
-//    ui.f7->setXY(5,6);
-//    ui.g7->setXY(6,6);
-//    ui.h7->setXY(7,6);
-//
-//    ui.a8->setXY(0,7);
-//    ui.b8->setXY(1,7);
-//    ui.c8->setXY(2,7);
-//    ui.d8->setXY(3,7);
-//    ui.e8->setXY(4,7);
-//    ui.f8->setXY(5,7);
-//    ui.g8->setXY(6,7);
-//    ui.h8->setXY(7,7);
-//
-//}
-//
-//void echecs::GameWindow::partieNormaleInit() {
-//    //reset game
-//    ui.a1->changerEtat(Case::tourBlanc);
-//    ui.b1->changerEtat(Case::cavalierBlanc);
-//    ui.c1->changerEtat(Case::fouBlanc);
-//    ui.d1->changerEtat(Case::reineBlanc);
-//    ui.e1->changerEtat(Case::roiBlanc);
-//    ui.f1->changerEtat(Case::fouBlanc);
-//    ui.g1->changerEtat(Case::cavalierBlanc);
-//    ui.h1->changerEtat(Case::tourBlanc);
-//    ui.a2->changerEtat(Case::pionBlanc);
-//    ui.b2->changerEtat(Case::pionBlanc);
-//    ui.c2->changerEtat(Case::pionBlanc);
-//    ui.d2->changerEtat(Case::pionBlanc);
-//    ui.e2->changerEtat(Case::pionBlanc);
-//    ui.f2->changerEtat(Case::pionBlanc);
-//    ui.g2->changerEtat(Case::pionBlanc);
-//    ui.h2->changerEtat(Case::pionBlanc);
-//
-//    ui.a8->changerEtat(Case::tourNoir);
-//    ui.b8->changerEtat(Case::cavalierNoir);
-//    ui.c8->changerEtat(Case::fouNoir);
-//    ui.d8->changerEtat(Case::reineNoir);
-//    ui.e8->changerEtat(Case::roiNoir);
-//    ui.f8->changerEtat(Case::fouNoir);
-//    ui.g8->changerEtat(Case::cavalierNoir);
-//    ui.h8->changerEtat(Case::tourNoir);
-//    ui.a7->changerEtat(Case::pionNoir);
-//    ui.b7->changerEtat(Case::pionNoir);
-//    ui.c7->changerEtat(Case::pionNoir);
-//    ui.d7->changerEtat(Case::pionNoir);
-//    ui.e7->changerEtat(Case::pionNoir);
-//    ui.f7->changerEtat(Case::pionNoir);
-//    ui.g7->changerEtat(Case::pionNoir);
-//    ui.h7->changerEtat(Case::pionNoir);
-//
-//}
-//
-//void echecs::GameWindow::jouer(int x, int y) {
-//    auto item = ui.plateauLayout->itemAtPosition(7-x, y);
-//    if (!item || !item->widget())
-//        return;
-//    Case* plateauCase = qobject_cast<Case*>(item->widget());
-//    if (plateauCase) {
-//        plateauCase->changerEtat(Case::cavalierBlanc);
-//    }
-//
-//}
-//
-//
+
 void front_end::GameWindow::syncPlateau() {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             auto piece = plateau->casePiece[i][j];
-            string position = posToObjName(j, i); ///===========3
+            string position = posANomObj(i, j); ///===========3
             auto caseButton = findChild<Case*>(position);
             
             if (piece == nullptr) {
@@ -252,10 +354,15 @@ void front_end::GameWindow::syncPlateau() {
     }
 }
 
-string front_end::GameWindow::posToObjName(int x, int y) {
+string front_end::GameWindow::posANomObj(int x, int y) {
     string combine = "";
-    char lettre = x + 97;
+    char lettre = y + 97;
     combine += lettre;
-    combine += '0' + ++y;
+    combine += '0' + (8-x);
     return combine;
+}
+
+void front_end::GameWindow::nomObjAPos(const string& pos, int &x, int &y) {
+    y = pos[0] - 97;
+    x = 8 - pos[1] + '0';
 }
